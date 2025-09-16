@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "316897296960",
+    "project_id": "ventripay-1feb2",
+    "storage_bucket": "ventripay-1feb2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316897296960:android:35e4afab0411ffcb7a55a5",
+        "android_client_info": {
+          "package_name": "com.example.summer_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdIwTYs_MxHK9hqI1UIRLrxpGBMwcm_-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,22 @@
+// Stateful Widget: allows change of State
+// Stateless Widget: doesnt allow change of State
+// Lifecycle of a typical screen
+// initState: runs whenever the screen is opened
+// didchangedependencies
+// didupdatewidget: for hot restart/reload
+// dispose: runs when you close the screen
+// build: runs when you open the screen
+// expanded: creates an available/constrain space inside a container/widget
+
+State management
+BLoC, Riverpod, Provider, GetX
+//prop drilling (!scalable)
+
+Architecture
+under every folder
+views
+widgets
+Provider
+service
+enum
+models
