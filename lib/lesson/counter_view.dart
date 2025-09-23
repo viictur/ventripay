@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:summer_flutter/authentication/views/signup/views/reason.dart';
 import 'package:summer_flutter/core/my_button.dart';
 import 'package:summer_flutter/lesson/provider/counter_provider.dart';
 
@@ -46,6 +47,18 @@ class CounterView extends StatelessWidget {
                       ),
                     ),
                   ],
+                ),
+                MyButton(
+                  title: 'NEXT',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            const Reason(),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),

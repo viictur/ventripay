@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:summer_flutter/core/app_styles.dart';
+import 'package:summer_flutter/core/my_button.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class Phone extends StatefulWidget {
+  const Phone({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Phone> createState() => _PhoneState();
 }
 
-class _LoginState extends State<Login> {
+class _PhoneState extends State<Phone> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,46 +41,50 @@ class _LoginState extends State<Login> {
                       ),
                       Gap(6),
                       Text(
-                        'Login',
+                        'Enter Phone Number',
                         style: GoogleFonts.montserrat(
                           fontSize: 15,
                           fontWeight: FontWeight.w700,
                           letterSpacing: 0.07,
                         ),
-                        textAlign: TextAlign.center,
                       ),
+                      Gap(10),
                     ],
-                  ),
-                  Gap(10),
-                  Text(
-                    'Get verification code to log in',
-                    style: GoogleFonts.montserrat(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: 0.07,
-                    ),
-                  ),
-                  Gap(12),
-                  Text(
-                    'How would you like to receive a verification code?',
-                    style: AppStyles.montserrat12Rg,
                   ),
                 ],
               ),
             ),
-            Gap(20),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Container(
-                //   decoration: BoxDecoration(
-                //     color: Color.fromARGB(255, 147, 77, 77),
-                //     borderRadius: BorderRadius.circular(8),
-                //   ),
-                //   child: Icon(Icons.phone, size: 28),
-                // ),
-                Row(children: []),
-              ],
+            Gap(10),
+            Text(
+              'Phone Number',
+              style: GoogleFonts.montserrat(
+                fontSize: 9,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            //Row(children: [IntlPhoneField()]),
+            Checkbox(value: true, onChanged: (value) {}),
+            Spacer(),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                children: [
+                  MyButton(
+                    title: 'NEXT',
+                    backgroundColor: Color(0xFF003366),
+                    onPressed: () {},
+                    style: AppStyles.montserrat16Xl
+                        .copyWith(color: Colors.white),
+                  ),
+                  OutlinedButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Receive code another way ',
+                      style: TextStyle(),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

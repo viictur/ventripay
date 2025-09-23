@@ -32,7 +32,7 @@ class MyButton extends StatelessWidget {
         ),
         child: Text(
           title,
-          style: style ?? TextStyle(color: Colors.green),
+          style: style ?? TextStyle(color: Colors.blue),
         ),
       ),
     );
