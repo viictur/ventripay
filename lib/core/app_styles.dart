@@ -77,4 +77,9 @@ class AppStyles {
     fontWeight: FontWeight.w700,
     color: Colors.black,
   );
+  static TextStyle redHat15 = GoogleFonts.redHatDisplay(
+    fontSize: 15,
+    fontWeight: FontWeight.w700,
+    color: Colors.black,
+  );
 }

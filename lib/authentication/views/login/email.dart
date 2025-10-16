@@ -2,19 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:summer_flutter/authentication/views/login/email.dart';
 import 'package:summer_flutter/core/app_styles.dart';
 import 'package:summer_flutter/core/extension.dart';
 import 'package:summer_flutter/core/my_button.dart';
 
-class Phone extends StatefulWidget {
-  const Phone({super.key});
+class Email extends StatefulWidget {
+  const Email({super.key});
 
   @override
-  State<Phone> createState() => _PhoneState();
+  State<Email> createState() => _EmailState();
 }
 
-class _PhoneState extends State<Phone> {
+class _EmailState extends State<Email> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +57,7 @@ class _PhoneState extends State<Phone> {
             ),
             Gap(10),
             Text(
-              'Phone Number',
+              'Email Address',
               style: GoogleFonts.montserrat(
                 fontSize: 9,
                 fontWeight: FontWeight.w600,
@@ -66,43 +65,14 @@ class _PhoneState extends State<Phone> {
             ),
             Row(
               children: [
-                Container(
-                  padding: EdgeInsets.all(10),
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        'assets/flag.png',
-                        width: 12,
-                        height: 12,
-                      ),
-                      Gap(2),
-                      Text(
-                        '+234',
-                        style: AppStyles.montserrat12Rg,
-                      ),
-                      Icon(
-                        Icons.keyboard_arrow_down,
-                        size: 12,
-                      ),
-                    ],
-                  ),
-                ),
-                Gap(2),
-                Expanded(
-                  child: Container(
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        hintText: '81 1340 1250',
-                        hintStyle: AppStyles.montserrat12Rg
-                            .copyWith(
-                              color: Color(0xFF949494),
-                            ),
-                        border: InputBorder.none,
-                        contentPadding:
-                            EdgeInsets.symmetric(
-                              horizontal: 8,
-                            ),
-                      ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    hintText: 'Eg.ventripay@gmail.com',
+                    hintStyle: AppStyles.montserrat12Rg
+                        .copyWith(color: Color(0xFF949494)),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 8,
                     ),
                   ),
                 ),
@@ -116,7 +86,7 @@ class _PhoneState extends State<Phone> {
                   onChanged: (value) {},
                 ),
                 Text(
-                  'Remember Phone number',
+                  'Remember Email',
                   style: AppStyles.montserrat12Rg.copyWith(
                     fontSize: 9,
                   ),

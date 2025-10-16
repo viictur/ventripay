@@ -8,6 +8,7 @@ class MyButton extends StatelessWidget {
     this.backgroundColor,
     required this.onPressed,
     this.width,
+    this.height,
     this.style,
   });
 
@@ -16,12 +17,14 @@ class MyButton extends StatelessWidget {
   Color? backgroundColor = Colors.black;
   final Function() onPressed;
   final double? width;
+  final double? height;
   final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: width ?? double.infinity,
+      height: height ?? double.infinity,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(

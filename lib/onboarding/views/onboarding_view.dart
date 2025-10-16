@@ -56,63 +56,89 @@ class _OnboardingViewState extends State<OnboardingView> {
             children: [
               Align(
                 alignment: Alignment.topRight,
-                child: Container(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 5,
-                    horizontal: 10,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Color(0xFFF9F9F9),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text('SKIP'),
-                      Icon(Icons.arrow_forward),
-                    ],
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            const Country(),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 5,
+                      horizontal: 10,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Color(0xFFF9F9F9),
+                      borderRadius: BorderRadius.circular(
+                        12,
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text('SKIP'),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
               ),
               //SizedBox(height: 20),
               Gap(20),
-              Container(
-                padding: EdgeInsets.symmetric(
-                  vertical: 40,
-                  horizontal: 20,
-                ),
-                decoration: BoxDecoration(
-                  color: Color(0xFFF6FBFF),
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(
-                    color: Color(0xFFD9E8F7),
-                    width: 1,
-                  ),
-                ),
-                child: Image.asset(
-                  'assets/3d-cartoon-lumberjack-character 1.png',
+              Expanded(
+                child: PageView.builder(
+                  controller: pageController,
+                  itemCount: data.length,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 40,
+                            horizontal: 20,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Color(0xFFF6FBFF),
+                            borderRadius:
+                                BorderRadius.circular(20),
+                            border: Border.all(
+                              color: Color(0xFFD9E8F7),
+                              width: 1,
+                            ),
+                          ),
+                          child: Image.asset(
+                            data[index].image,
+                          ),
+                        ),
+                        Gap(16),
+                        Text(
+                          data[index].title,
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.montserrat(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Gap(6),
+                        Text(
+                          data[index].description,
+                          style: GoogleFonts.montserrat(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xFF003366),
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    );
+                  },
                 ),
               ),
-              Gap(16),
-              Text(
-                data[0].title,
-                textAlign: TextAlign.center,
-                style: GoogleFonts.montserrat(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              Gap(6),
-              Text(
-                'Effortlessly send money across Africa and beyond, with security and speed you can trust.',
-                style: GoogleFonts.montserrat(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFF003366),
-                ),
-                textAlign: TextAlign.center,
-              ),
-              Gap(20),
+              //Gap(10),
               SmoothPageIndicator(
                 controller: pageController,
                 count: 3,
@@ -130,7 +156,21 @@ class _OnboardingViewState extends State<OnboardingView> {
                 textColor: Colors.white,
                 backgroundColor: Colors.black,
                 onPressed: () {
-                  print('object');
+                  if (pageController.page!.toInt() <
+                      data.length - 1) {
+                    pageController.nextPage(
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.easeInOut,
+                    );
+                  } else {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            const Country(),
+                      ),
+                    );
+                  }
                 },
               ),
             ],

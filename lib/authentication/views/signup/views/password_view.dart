@@ -73,10 +73,10 @@ class _PasswordState extends State<Password> {
                       borderRadius: BorderRadius.circular(
                         8,
                       ),
-                      color: Color(0xFFFCFCFC),
                     ),
                     child: TextField(
                       decoration: InputDecoration(
+                        fillColor: Color(0xFFFCFCFC),
                         hintText: 'Password',
                         hintStyle: AppStyles.montserrat14S,
                         border: InputBorder.none,

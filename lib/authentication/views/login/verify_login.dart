@@ -3,16 +3,17 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
 import 'package:summer_flutter/core/app_styles.dart';
+import 'package:summer_flutter/core/extension.dart';
 import 'package:summer_flutter/core/my_button.dart';
 
-class Verify extends StatefulWidget {
-  const Verify({super.key});
+class VerifyLogin extends StatefulWidget {
+  const VerifyLogin({super.key});
 
   @override
-  State<Verify> createState() => _VerifyState();
+  State<VerifyLogin> createState() => _VerifyLoginState();
 }
 
-class _VerifyState extends State<Verify> {
+class _VerifyLoginState extends State<VerifyLogin> {
   final otpController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -58,30 +59,47 @@ class _VerifyState extends State<Verify> {
                 crossAxisAlignment:
                     CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Verify Your Email',
-                    style: GoogleFonts.montserrat(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: 0.07,
-                    ),
+                  Row(
+                    children: [
+                      Icon(Icons.arrow_back, size: 11),
+                      Text(
+                        'Back',
+                        style: GoogleFonts.montserrat(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      Gap(context.getWidth(0.25)),
+                      Text(
+                        'Verification',
+                        style: GoogleFonts.montserrat(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: 0.07,
+                        ),
+                      ),
+                    ],
                   ),
-                  Gap(10),
                 ],
               ),
             ),
+            //Gap(10),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Please enter the OTP sent to',
-                  style: AppStyles.montserrat16R,
-                ),
-                Text(
-                  'ventrpay@gmail.com',
+                  'Kindly enter your Verification',
                   style: AppStyles.montserrat16Md,
                 ),
-                Gap(10),
+                Text(
+                  'code',
+                  style: AppStyles.montserrat16Md,
+                ),
+                Text(
+                  'To log in, kindly enter the verification code sent to your email address',
+                  style: AppStyles.montserrat12Rg,
+                ),
+                Gap(20),
                 //read up on pinput from pub.dev
                 Pinput(
                   length: 6,
@@ -95,13 +113,13 @@ class _VerifyState extends State<Verify> {
                 ),
               ],
             ),
-            Spacer(),
+            Gap(context.getHeight(0.4)),
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(
                 children: [
                   MyButton(
-                    title: 'Verify Account',
+                    title: 'SUBMIT',
                     backgroundColor: Color(0xFFCCD6E0),
                     onPressed: () {},
                     style: AppStyles.montserrat16Xl

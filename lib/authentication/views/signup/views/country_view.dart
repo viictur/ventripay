@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:summer_flutter/authentication/views/signup/views/signup_view.dart';
 import 'package:summer_flutter/core/app_colors.dart';
 import 'package:summer_flutter/core/app_styles.dart';
 import 'package:summer_flutter/core/extension.dart';
@@ -60,18 +61,23 @@ class _CountryState extends State<Country> {
                 crossAxisAlignment:
                     CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      Icon(Icons.arrow_back, size: 11),
-                      Text(
-                        'Back',
-                        style: GoogleFonts.montserrat(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Row(
+                      children: [
+                        Icon(Icons.arrow_back, size: 11),
+                        Text(
+                          'Back',
+                          style: GoogleFonts.montserrat(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
-                      ),
-                      Gap(6),
-                    ],
+                        Gap(6),
+                      ],
+                    ),
                   ),
                   Text(
                     'What country do you live in?',
@@ -188,7 +194,7 @@ class _CountryState extends State<Country> {
                 ),
               ),
             ),
-            Spacer(),
+            Gap(context.getHeight(0.34)),
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(
@@ -198,7 +204,15 @@ class _CountryState extends State<Country> {
                   MyButton(
                     title: 'Continue',
                     backgroundColor: Color(0xFF003366),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              const SignUp(),
+                        ),
+                      );
+                    },
                     style: AppStyles.montserrat16Xl
                         .copyWith(color: Colors.white),
                   ),

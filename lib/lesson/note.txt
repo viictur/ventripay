@@ -20,3 +20,8 @@ Provider
 service
 enum
 models
+
+json- JavaScript Object Notation
+
+synchronous- where code executes one after the other
+asynchronous- where code executes even when one is not done executing
