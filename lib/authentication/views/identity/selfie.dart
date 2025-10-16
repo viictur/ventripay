@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:summer_flutter/authentication/views/card/card_view.dart';
+import 'package:summer_flutter/authentication/views/card/virtual_card.dart';
 import 'package:summer_flutter/authentication/views/identity/scan_id.dart';
 import 'package:summer_flutter/core/app_styles.dart';
 import 'package:summer_flutter/core/extension.dart';
@@ -93,7 +93,8 @@ class _SelfieState extends State<Selfie> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const CardView(),
+                    builder: (context) =>
+                        const VirtualCard(),
                   ),
                 );
               },

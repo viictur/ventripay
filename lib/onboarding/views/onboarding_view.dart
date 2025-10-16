@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:summer_flutter/authentication/views/signup/views/country_view.dart';
+import 'package:summer_flutter/core/app_styles.dart';
 import 'package:summer_flutter/core/my_button.dart';
 import 'package:summer_flutter/onboarding/models/onboarding_data.dart';
 
@@ -38,13 +39,6 @@ class _OnboardingViewState extends State<OnboardingView> {
       image: 'assets/Group 12913.png',
     ),
   ];
-
-  // void changeScreen() {
-  //   Navigator.push(
-  //     context,
-  //     MaterialPageRoute(builder: (context) => Country()),
-  //   );
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -152,9 +146,12 @@ class _OnboardingViewState extends State<OnboardingView> {
               ),
               Gap(40),
               MyButton(
+                style: AppStyles.montserrat16Xl.copyWith(
+                  color: Color(0xFFFFFFFF),
+                ),
                 title: 'NEXT',
                 textColor: Colors.white,
-                backgroundColor: Colors.black,
+                backgroundColor: Color(0xFF003366),
                 onPressed: () {
                   if (pageController.page!.toInt() <
                       data.length - 1) {

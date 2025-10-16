@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:summer_flutter/authentication/provider/authentication_provider.dart';
 import 'package:summer_flutter/authentication/views/card/card_application.dart';
-import 'package:summer_flutter/authentication/views/card/card_view.dart';
+import 'package:summer_flutter/authentication/views/card/physical_card.dart';
+import 'package:summer_flutter/authentication/views/card/virtual_card.dart';
 import 'package:summer_flutter/authentication/views/dashboard/dashboard_view.dart';
 import 'package:summer_flutter/authentication/views/identity/scan_id.dart';
 import 'package:summer_flutter/authentication/views/identity/verify_dob.dart';
@@ -55,10 +57,13 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => TodoProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => AuthenticationProvider(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: TodoView(),
+        home: DashboardView(),
       ),
     );
   }

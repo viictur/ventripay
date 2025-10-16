@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:summer_flutter/authentication/views/login/email.dart';
 import 'package:summer_flutter/authentication/views/login/phone.dart';
 import 'package:summer_flutter/core/app_colors.dart';
 import 'package:summer_flutter/core/app_styles.dart';
@@ -32,17 +33,25 @@ class _LoginState extends State<Login> {
                 children: [
                   Row(
                     children: [
-                      Row(
-                        children: [
-                          Icon(Icons.arrow_back, size: 11),
-                          Text(
-                            'Back',
-                            style: GoogleFonts.montserrat(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.arrow_back,
+                              size: 11,
                             ),
-                          ),
-                        ],
+                            Text(
+                              'Back',
+                              style: GoogleFonts.montserrat(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       Gap(context.getHeight(0.15)),
                       Text(
@@ -73,90 +82,97 @@ class _LoginState extends State<Login> {
                 ],
               ),
             ),
-            Gap(20),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const Phone(),
-                      ),
-                    );
-                  },
-                  child: Row(
-                    // mainAxisAlignment:
-                    //     MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xFFF9F9F9),
-                          borderRadius:
-                              BorderRadius.circular(8),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment:
+                    CrossAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              const Phone(),
                         ),
-                        child: Image.asset(
-                          'assets/phone.png',
-                          width: 58,
-                        ),
-                        //child: Icon(Icons.phone, size: 50),
-                      ),
-                      Expanded(
-                        flex: 2,
-                        child: Text(
-                          'Phone number',
-                          style: GoogleFonts.montserrat(
-                            fontSize: 18.14,
-                            fontWeight: FontWeight.w500,
+                      );
+                    },
+                    child: Row(
+                      // mainAxisAlignment:
+                      //     MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xFFF9F9F9),
+                            borderRadius:
+                                BorderRadius.circular(8),
+                          ),
+                          child: Image.asset(
+                            'assets/phone.png',
+                            width: 58,
                           ),
                         ),
-                      ),
-                      Icon(Icons.arrow_forward_ios_rounded),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 10),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const Phone(),
-                      ),
-                    );
-                  },
-                  child: Row(
-                    // mainAxisAlignment:
-                    //     MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xFFF9F9F9),
-                          borderRadius:
-                              BorderRadius.circular(8),
-                        ),
-                        child: Image.asset(
-                          'assets/email.png',
-                          width: 58,
-                        ),
-                        //child: Icon(Icons.phone, size: 50),
-                      ),
-                      Expanded(
-                        flex: 2,
-                        child: Text(
-                          'Email',
-                          style: GoogleFonts.montserrat(
-                            fontSize: 18.14,
-                            fontWeight: FontWeight.w500,
+                        Expanded(
+                          flex: 2,
+                          child: Text(
+                            'Phone number',
+                            style: GoogleFonts.montserrat(
+                              fontSize: 18.14,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
-                      ),
-                      Icon(Icons.arrow_forward_ios_rounded),
-                    ],
+                        Icon(
+                          Icons.arrow_forward_ios_rounded,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                  SizedBox(height: 10),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              const Email(),
+                        ),
+                      );
+                    },
+                    child: Row(
+                      // mainAxisAlignment:
+                      //     MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xFFF9F9F9),
+                            borderRadius:
+                                BorderRadius.circular(8),
+                          ),
+                          child: Image.asset(
+                            'assets/email.png',
+                            width: 58,
+                          ),
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: Text(
+                            'Email',
+                            style: GoogleFonts.montserrat(
+                              fontSize: 18.14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios_rounded,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
             Gap(context.getHeight(0.6)),
             Center(

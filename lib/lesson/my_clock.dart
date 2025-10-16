@@ -70,110 +70,98 @@ class _MyClockState extends State<MyClock>
         child: Form(
           key: formKey,
           child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            // mainAxisSize: MainAxisSize.min,
+            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(countdown.toString()),
               ElevatedButton(
                 onPressed: () {},
                 child: Text('Start/Stop timer'),
               ),
-              Gap(24),
-              Row(
-                children: [
-                  TextFormField(
-                    controller: myController,
-                    validator:
-                        Validators.validatePassword(),
-                    decoration: InputDecoration(
-                      hintText: 'Please enter your name',
-                      prefixIcon: Icon(Icons.add),
-                      suffixIcon: Icon(Icons.ac_unit),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(
-                          8,
-                        ),
-                        borderSide: BorderSide(
-                          color: Colors.green,
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(
-                          8,
-                        ),
-                        borderSide: BorderSide(
-                          color: Colors.green,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(
-                          8,
-                        ),
-                        borderSide: BorderSide(
-                          color: Colors.purple,
-                        ),
-                      ),
-                      // contentPadding:
-                      //     EdgeInsets.symmetric(
-                      //       vertical: 40,
-                      //       horizontal: 50,
-                      //     ),
-                    ),
-                    maxLines: 3,
-                    cursorColor: Colors.blue,
-                  ),
-                  //Icon(Icons.abc, size: 50),
-                ],
-              ),
-              // ElevatedButton(
-              //   onPressed: () {
-              //     if (!formKey.currentState!.validate()) {
-              //       print('validate');
-              //     } else {
-              //       print('validated');
-              //     }
-              //   },
-              //   child: Text('Click'),
-              // ),
-              Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
+              Gap(2),
+              TextFormField(
+                controller: myController,
+                validator: Validators.validatePassword(),
+                decoration: InputDecoration(
+                  hintText: 'Please enter your name',
+                  prefixIcon: Icon(Icons.add),
+                  suffixIcon: Icon(Icons.ac_unit),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(
                       color: Colors.green,
-                      blurRadius: 2,
-                      spreadRadius: 3,
-                      offset: Offset(0, 1),
                     ),
-                  ],
-                ),
-              ),
-              RichText(
-                text: TextSpan(
-                  text: 'hello ',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.red,
                   ),
-                  children: [
-                    TextSpan(
-                      text: 'world',
-                      style: TextStyle(
-                        fontSize: 22,
-                        color: Colors.blue,
-                        decoration:
-                            TextDecoration.underline,
-                      ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(
+                      color: Colors.green,
                     ),
-                  ],
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(
+                      color: Colors.purple,
+                    ),
+                  ),
+                  // contentPadding:
+                  //     EdgeInsets.symmetric(
+                  //       vertical: 40,
+                  //       horizontal: 50,
+                  //     ),
                 ),
+                maxLines: 3,
+                cursorColor: Colors.blue,
               ),
+              ElevatedButton(
+                onPressed: () {
+                  if (!formKey.currentState!.validate()) {
+                    print('validate');
+                  } else {
+                    print('validated');
+                  }
+                },
+                child: Text('Click'),
+              ),
+              // Container(
+              //   decoration: BoxDecoration(
+              //     boxShadow: [
+              //       BoxShadow(
+              //         color: Colors.green,
+              //         blurRadius: 2,
+              //         spreadRadius: 3,
+              //         offset: Offset(0, 1),
+              //       ),
+              //     ],
+              //   ),
+              // ),
+              // RichText(
+              //   text: TextSpan(
+              //     text: 'hello ',
+              //     style: TextStyle(
+              //       fontSize: 20,
+              //       color: Colors.red,
+              //     ),
+              //     children: [
+              //       TextSpan(
+              //         text: 'world',
+              //         style: TextStyle(
+              //           fontSize: 22,
+              //           color: Colors.blue,
+              //           decoration:
+              //               TextDecoration.underline,
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               SelectableText('this is selectable'),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Image.network(
-                  'https://plus.unsplash.com/premium_photo-1757330257568-c87c189a3a35?q=80&w=1243&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.all(8.0),
+              //   child: Image.network(
+              //     'https://plus.unsplash.com/premium_photo-1757330257568-c87c189a3a35?q=80&w=1243&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+              //   ),
+              // ),
               Card(
                 elevation: 3,
                 child: Text('hello world'),
@@ -195,22 +183,22 @@ class _MyClockState extends State<MyClock>
                   ),
                 ],
               ),
-              SwitchListTile(
-                value: isChecked,
-                onChanged: (value) {
-                  setState(() {
-                    isChecked = value;
-                  });
-                },
-              ),
-              FlutterSwitch(
-                value: isChecked,
-                onToggle: (value) {
-                  setState(() {
-                    isChecked = value;
-                  });
-                },
-              ),
+              // SwitchListTile(
+              //   value: isChecked,
+              //   onChanged: (value) {
+              //     setState(() {
+              //       isChecked = value;
+              //     });
+              //   },
+              // ),
+              // FlutterSwitch(
+              //   value: isChecked,
+              //   onToggle: (value) {
+              //     setState(() {
+              //       isChecked = value;
+              //     });
+              //   },
+              // ),
             ],
           ),
         ),

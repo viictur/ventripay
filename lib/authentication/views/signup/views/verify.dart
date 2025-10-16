@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
+import 'package:summer_flutter/authentication/views/signup/views/reason.dart';
 import 'package:summer_flutter/core/app_styles.dart';
+import 'package:summer_flutter/core/extension.dart';
 import 'package:summer_flutter/core/my_button.dart';
 
 class Verify extends StatefulWidget {
@@ -17,18 +19,16 @@ class _VerifyState extends State<Verify> {
   @override
   Widget build(BuildContext context) {
     final defaultPinTheme = PinTheme(
-      width: 56,
-      height: 56,
+      width: 54,
+      height: 54,
       textStyle: TextStyle(
         fontSize: 20,
         color: Color.fromRGBO(30, 60, 87, 1),
         fontWeight: FontWeight.w600,
       ),
       decoration: BoxDecoration(
-        border: Border.all(
-          color: Color.fromRGBO(234, 239, 243, 1),
-        ),
-        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Color(0xFFE4E2E2)),
+        borderRadius: BorderRadius.circular(10),
       ),
     );
     final focusedPinTheme = defaultPinTheme
@@ -70,32 +70,36 @@ class _VerifyState extends State<Verify> {
                 ],
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Please enter the OTP sent to',
-                  style: AppStyles.montserrat16R,
-                ),
-                Text(
-                  'ventrpay@gmail.com',
-                  style: AppStyles.montserrat16Md,
-                ),
-                Gap(10),
-                //read up on pinput from pub.dev
-                Pinput(
-                  length: 6,
-                  defaultPinTheme: defaultPinTheme,
-                  focusedPinTheme: focusedPinTheme,
-                  submittedPinTheme: defaultPinTheme,
-                  showCursor: true,
-                  onCompleted: (pin) {
-                    otpController.text = pin;
-                  },
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment:
+                    CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Please enter the OTP sent to',
+                    style: AppStyles.montserrat16R,
+                  ),
+                  Text(
+                    'ventrpay@gmail.com',
+                    style: AppStyles.montserrat16Md,
+                  ),
+                  Gap(context.getHeight(0.03)),
+                  //read up on pinput from pub.dev
+                  Pinput(
+                    length: 6,
+                    defaultPinTheme: defaultPinTheme,
+                    focusedPinTheme: focusedPinTheme,
+                    submittedPinTheme: defaultPinTheme,
+                    showCursor: true,
+                    onCompleted: (pin) {
+                      otpController.text = pin;
+                    },
+                  ),
+                ],
+              ),
             ),
-            Spacer(),
+            Gap(context.getHeight(0.56)),
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(
@@ -103,7 +107,15 @@ class _VerifyState extends State<Verify> {
                   MyButton(
                     title: 'Verify Account',
                     backgroundColor: Color(0xFFCCD6E0),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              const Reason(),
+                        ),
+                      );
+                    },
                     style: AppStyles.montserrat16Xl
                         .copyWith(color: Colors.white),
                   ),

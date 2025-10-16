@@ -24,6 +24,8 @@ class _TodoViewState extends State<TodoView> {
     super.initState();
   }
 
+  //explain this better with locator
+
   @override
   Widget build(BuildContext context) {
     return Consumer<TodoProvider>(
@@ -39,7 +41,7 @@ class _TodoViewState extends State<TodoView> {
                     return ListTile(
                       leading: Checkbox(
                         value: todo.isCompleted,
-                        onChanged: (value) {
+                        onChanged: (isChecked) {
                           prov.toggleTodo(todo.id);
                         },
                       ),
@@ -76,6 +78,7 @@ class _TodoViewState extends State<TodoView> {
                     },
                     decoration: InputDecoration(
                       hintText: 'Add a new todo',
+                      border: InputBorder.none,
                     ),
                   ),
                 ),

@@ -46,7 +46,8 @@ class Validators {
         return "Please enter a valid phone number";
       }
       if (value.length < maxLength) {
-        return "Phone number must be an $maxLength characters digits";
+        return "Phone number must be a/an $maxLength characters digits";
+        //make it wrap
       }
       if (value.length > maxLength) {
         return "Phone number can not be more than $maxLength digits";
