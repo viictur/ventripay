@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:summer_flutter/core/network/failure.dart';
 
-abstract class ApiResponse {} //defined class to extend data on it
+abstract class ApiResponse {} // a class defined so other classes can extend it
 
 class Success extends ApiResponse with EquatableMixin {
   final Map<String, dynamic> data;
@@ -16,7 +16,7 @@ class Success extends ApiResponse with EquatableMixin {
 class GeneralResponse<T> extends Equatable {
   final bool success;
   final String message;
-  final T? data;
+  final T? data; //generic- any datatype
 
   GeneralResponse({
     this.success = false,

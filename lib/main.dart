@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:summer_flutter/app_scaffold.dart';
 import 'package:summer_flutter/authentication/provider/authentication_provider.dart';
 import 'package:summer_flutter/authentication/views/card/card_application.dart';
 import 'package:summer_flutter/authentication/views/card/physical_card.dart';
@@ -12,6 +13,7 @@ import 'package:summer_flutter/authentication/views/login/email.dart';
 import 'package:summer_flutter/authentication/views/login/login.dart';
 import 'package:summer_flutter/authentication/views/login/phone.dart';
 import 'package:summer_flutter/authentication/views/login/verify_login.dart';
+import 'package:summer_flutter/authentication/views/settings/settings.dart';
 import 'package:summer_flutter/authentication/views/signup/views/country_view.dart';
 import 'package:summer_flutter/lesson/counter_view.dart';
 import 'package:summer_flutter/lesson/hesc.dart';
@@ -23,6 +25,7 @@ import 'package:summer_flutter/lesson/shopping_cart/providers/product_provider.d
 import 'package:summer_flutter/lesson/shopping_cart/views/shop_view.dart';
 import 'package:summer_flutter/lesson/todo/provider/todo_provider.dart';
 import 'package:summer_flutter/lesson/todo/views/todo_view.dart';
+import 'package:summer_flutter/locator.dart';
 import 'package:summer_flutter/ok.dart';
 import 'package:summer_flutter/onboarding/views/onboarding_view.dart';
 import 'package:summer_flutter/authentication/views/signup/views/password_view.dart';
@@ -38,6 +41,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await setupLocator();
   runApp(const MyApp());
 }
 
@@ -63,7 +67,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: DashboardView(),
+        home: OnboardingView(),
       ),
     );
   }

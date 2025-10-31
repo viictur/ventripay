@@ -16,11 +16,15 @@ class _PhysicalCardState extends State<PhysicalCard> {
     return Scaffold(
       appBar: AppBar(
         title: Text('VentriPay Card'),
+        toolbarHeight: 30,
         leading: Container(
-          decoration: BoxDecoration(shape: BoxShape.circle),
-          child: Icon(
-            Icons.arrow_circle_left,
+          decoration: BoxDecoration(
             color: Color(0xFFE8EAED),
+            shape: BoxShape.circle,
+          ),
+          child: Icon(
+            Icons.arrow_back,
+            color: Color(0xFF003366),
           ),
         ),
         actions: [
@@ -32,15 +36,20 @@ class _PhysicalCardState extends State<PhysicalCard> {
             ),
           ),
         ],
+        actionsPadding: EdgeInsets.symmetric(
+          horizontal: 12,
+        ),
       ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(12.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
+                  mainAxisAlignment:
+                      MainAxisAlignment.center,
                   children: [
                     Text('Virtual Card'),
                     Gap(10),
@@ -52,6 +61,11 @@ class _PhysicalCardState extends State<PhysicalCard> {
                   crossAxisAlignment:
                       CrossAxisAlignment.start,
                   children: [
+                    Center(
+                      child: Image.asset(
+                        'assets/physical.png',
+                      ),
+                    ),
                     Text(
                       'VentriPay Card',
                       style: AppStyles.montserrat16Xl
@@ -179,85 +193,88 @@ class _PhysicalCardState extends State<PhysicalCard> {
                   backgroundColor: Color(0xFF557799),
                 ),
                 Gap(11),
-                MyButton(
-                  height: 45,
-                  title:
+                Container(
+                  width: double.infinity,
+                  child: OutlinedButton(
+                    onPressed: () {},
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                          10,
+                        ), // round edges
+                      ),
+                      side: BorderSide(
+                        color: Color(0xFF6C7B8A),
+                      ),
+                    ),
+                    child: Text(
                       'PICK UP FROM LOCAL MERCHANTS NEAR YOU',
-                  style: AppStyles.montserrat14Md,
-                  onPressed: () {},
-                  backgroundColor: Colors.white,
+                    ),
+                  ),
                 ),
-                // OutlinedButton(
-                //   onPressed: () {},
-                //   style: OutlinedButton.styleFrom(
-                //     foregroundColor: Colors.black,
+                // Container(
+                //   padding: EdgeInsets.all(16),
+                //   decoration: BoxDecoration(
+                //     color: Color(0xFFF2F2F2),
                 //   ),
-                //   child: Text(
-                //     'PICK UP FROM LOCAL MERCHANTS NEAR YOU',
+                //   child: Row(
+                //     children: [
+                //       Column(
+                //         children: [
+                //           IconButton(
+                //             onPressed: () {},
+                //             icon: Image.asset(
+                //               'assets/home.png',
+                //               color: Color(0xFF7595B6),
+                //             ),
+                //           ),
+                //           Text('Dashboard'),
+                //         ],
+                //       ),
+                //       Gap(5),
+                //       Column(
+                //         children: [
+                //           IconButton(
+                //             onPressed: () {},
+                //             icon: Image.asset(
+                //               'assets/card.png',
+                //               color: Color(0xFF003366),
+                //             ),
+                //           ),
+                //           Text('Card'),
+                //         ],
+                //       ),
+                //       Gap(5),
+                //       Column(
+                //         children: [
+                //           IconButton(
+                //             onPressed: () {},
+                //             icon: Icon(
+                //               Icons
+                //                   .favorite_border_outlined,
+                //               color: Color(0xFF7595B6),
+                //             ),
+                //           ),
+                //           Text('Frequent'),
+                //           Text('Transactions'),
+                //         ],
+                //       ),
+                //       Gap(10),
+                //       Column(
+                //         children: [
+                //           IconButton(
+                //             onPressed: () {},
+                //             icon: Image.asset(
+                //               'assets/settings.png',
+                //             ),
+                //           ),
+                //           Text('Settings'),
+                //         ],
+                //       ),
+                //     ],
                 //   ),
                 // ),
-                Container(
-                  padding: EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Color(0xFFF2F2F2),
-                  ),
-                  child: Row(
-                    children: [
-                      Column(
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: Image.asset(
-                              'assets/home.png',
-                              color: Color(0xFF7595B6),
-                            ),
-                          ),
-                          Text('Dashboard'),
-                        ],
-                      ),
-                      Gap(5),
-                      Column(
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: Image.asset(
-                              'assets/card.png',
-                              color: Color(0xFF003366),
-                            ),
-                          ),
-                          Text('Card'),
-                        ],
-                      ),
-                      Gap(5),
-                      Column(
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons
-                                  .favorite_border_outlined,
-                              color: Color(0xFF7595B6),
-                            ),
-                          ),
-                          Text('Frequent'),
-                          Text('Transactions'),
-                        ],
-                      ),
-                      Gap(10),
-                      Column(
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: Image.asset(
-                              'assets/settings.png',
-                            ),
-                          ),
-                          Text('Settings'),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
               ],
             ),
           ),

@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:provider/provider.dart';
 import 'package:summer_flutter/authentication/provider/authentication_provider.dart';
+import 'package:summer_flutter/authentication/views/login/login.dart';
 import 'package:summer_flutter/authentication/views/signup/views/password_view.dart';
 import 'package:summer_flutter/core/app_styles.dart';
 import 'package:summer_flutter/core/extension.dart';
@@ -395,7 +396,7 @@ class _SignUpState extends State<SignUp> {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) =>
-                                              const Password(),
+                                              const Login(),
                                         ),
                                       );
                                     },

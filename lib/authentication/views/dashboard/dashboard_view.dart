@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:summer_flutter/app_scaffold.dart';
 import 'package:summer_flutter/core/app_styles.dart';
 import 'package:summer_flutter/core/extension.dart';
 //read on dio from pub.dev
@@ -224,72 +225,85 @@ class _DashboardViewState extends State<DashboardView> {
                                     ),
                                     Row(
                                       children: [
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment
-                                                  .start,
+                                        Row(
                                           children: [
-                                            Row(
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment
+                                                      .start,
                                               children: [
-                                                Image.asset(
-                                                  'assets/flag.png',
-                                                  width: 10,
-                                                  height:
-                                                      10,
+                                                Row(
+                                                  children: [
+                                                    Image.asset(
+                                                      'assets/flag.png',
+                                                      width:
+                                                          10,
+                                                      height:
+                                                          10,
+                                                    ),
+                                                    Gap(4),
+                                                    Text(
+                                                      'NGN',
+                                                      style: AppStyles.montserrat12Rg.copyWith(
+                                                        fontSize:
+                                                            9.87,
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                      ),
+                                                    ),
+                                                    Gap(26),
+                                                    Image.asset(
+                                                      'assets/us.png',
+                                                      width:
+                                                          10,
+                                                      height:
+                                                          10,
+                                                    ),
+                                                    Gap(4),
+                                                    Text(
+                                                      'USD',
+                                                      style: AppStyles.montserrat12Rg.copyWith(
+                                                        fontSize:
+                                                            9.87,
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
-                                                Gap(4),
-                                                Text(
-                                                  'NGN',
-                                                  style: AppStyles.montserrat12Rg.copyWith(
-                                                    fontSize:
-                                                        9.87,
-                                                    fontWeight:
-                                                        FontWeight.w300,
-                                                  ),
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      '430.89',
+                                                      style: AppStyles.montserrat14Md.copyWith(
+                                                        fontSize:
+                                                            15.35,
+                                                      ),
+                                                    ),
+                                                    Gap(6),
+                                                    Container(
+                                                      width:
+                                                          1,
+                                                      height:
+                                                          20,
+                                                      decoration: BoxDecoration(
+                                                        color: Color(
+                                                          0xFF707070,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Gap(6),
+                                                    Text(
+                                                      '\$ 0.00',
+                                                      style: AppStyles.montserrat14Md.copyWith(
+                                                        fontSize:
+                                                            15.35,
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ],
                                             ),
-                                            Text('430.89 '),
-                                          ],
-                                        ),
-                                        Gap(16),
-                                        Container(
-                                          width: 1,
-                                          height: 20,
-                                          decoration:
-                                              BoxDecoration(
-                                                color: Color(
-                                                  0xFF707070,
-                                                ),
-                                              ),
-                                        ),
-                                        Gap(16),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment
-                                                  .start,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Image.asset(
-                                                  'assets/us.png',
-                                                  width: 10,
-                                                  height:
-                                                      10,
-                                                ),
-                                                Gap(4),
-                                                Text(
-                                                  'USD',
-                                                  style: AppStyles.montserrat12Rg.copyWith(
-                                                    fontSize:
-                                                        9.87,
-                                                    fontWeight:
-                                                        FontWeight.w300,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Text(' 0.00'),
                                           ],
                                         ),
                                         Gap(10),
@@ -346,48 +360,43 @@ class _DashboardViewState extends State<DashboardView> {
                           ),
                         ],
                       ),
-                      Align(
-                        alignment: Alignment.bottomRight,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Color(0xFF003366),
-                                Color(0xFF0066CC),
-                              ],
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                            ),
-                            borderRadius:
-                                BorderRadius.circular(12),
+                      Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xFF003366),
+                              Color(0xFF0066CC),
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
                           ),
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  Colors.transparent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.circular(
-                                      12,
-                                    ),
-                              ),
+                          borderRadius:
+                              BorderRadius.circular(12),
+                        ),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                Colors.transparent,
+                            shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.circular(12),
                             ),
-                            child: Row(
-                              children: [
-                                Text(
-                                  'Begin',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Icon(
-                                  Icons
-                                      .arrow_forward_outlined,
+                          ),
+                          child: Row(
+                            children: [
+                              Text(
+                                'Begin',
+                                style: TextStyle(
                                   color: Colors.white,
                                 ),
-                              ],
-                            ),
+                              ),
+                              Icon(
+                                Icons
+                                    .arrow_forward_outlined,
+                                color: Colors.white,
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -677,93 +686,10 @@ class _DashboardViewState extends State<DashboardView> {
                     ],
                   ),
                 ),
-                //Gap(context.getHeight(0.02)),
-                Container(
-                  padding: EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Color(0xFFF2F2F2),
-                  ),
-                  child: Row(
-                    children: [
-                      Column(
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: Image.asset(
-                              'assets/home.png',
-                            ),
-                          ),
-                          Text('Dashboard'),
-                        ],
-                      ),
-                      Gap(5),
-                      Column(
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: Image.asset(
-                              'assets/card.png',
-                            ),
-                          ),
-                          Text('Card'),
-                        ],
-                      ),
-                      Gap(5),
-                      Column(
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons
-                                  .favorite_border_outlined,
-                              color: Color(0xFF7595B6),
-                            ),
-                          ),
-                          Text('Frequent'),
-                          Text('Transactions'),
-                        ],
-                      ),
-                      Gap(10),
-                      Column(
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: Image.asset(
-                              'assets/settings.png',
-                            ),
-                          ),
-                          Text('Settings'),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
               ],
             ),
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        elevation: 0,
-        backgroundColor: Color(0xFFF2F2F2),
-        items: [
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/home.png'),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/card.png'),
-            label: 'Card',
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/fave.png'),
-            label: 'Frequent',
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/settings.png'),
-            label: 'Settings',
-          ),
-        ],
       ),
     );
   }

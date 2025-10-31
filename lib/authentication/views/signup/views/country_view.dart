@@ -3,6 +3,8 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:summer_flutter/authentication/provider/authentication_provider.dart';
+import 'package:summer_flutter/authentication/views/login/email.dart';
+import 'package:summer_flutter/authentication/views/login/login.dart';
 import 'package:summer_flutter/authentication/views/signup/views/signup_view.dart';
 import 'package:summer_flutter/core/app_colors.dart';
 import 'package:summer_flutter/core/app_styles.dart';
@@ -239,33 +241,44 @@ class _CountryState extends State<Country> {
                                 color: Colors.white,
                               ),
                         ),
-                        RichText(
-                          text: TextSpan(
-                            text:
-                                'Already have an account? ',
-                            style:
-                                GoogleFonts.redHatDisplay(
-                                  fontSize: 14,
-                                  fontWeight:
-                                      FontWeight.w400,
-                                  color: Colors.black,
-                                ),
-                            children: [
-                              TextSpan(
-                                text: 'Sign in here',
-                                style:
-                                    GoogleFonts.redHatDisplay(
-                                      fontSize: 14,
-                                      fontWeight:
-                                          FontWeight.w500,
-                                      color:
-                                          AppColors.primary,
-                                      decoration:
-                                          TextDecoration
-                                              .underline,
-                                    ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const Login(),
                               ),
-                            ],
+                            );
+                          },
+                          child: RichText(
+                            text: TextSpan(
+                              text:
+                                  'Already have an account? ',
+                              style:
+                                  GoogleFonts.redHatDisplay(
+                                    fontSize: 14,
+                                    fontWeight:
+                                        FontWeight.w400,
+                                    color: Colors.black,
+                                  ),
+                              children: [
+                                TextSpan(
+                                  text: 'Sign in here',
+                                  style:
+                                      GoogleFonts.redHatDisplay(
+                                        fontSize: 14,
+                                        fontWeight:
+                                            FontWeight.w500,
+                                        color: AppColors
+                                            .primary,
+                                        decoration:
+                                            TextDecoration
+                                                .underline,
+                                      ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
