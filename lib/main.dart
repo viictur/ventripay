@@ -3,8 +3,10 @@ import 'package:provider/provider.dart';
 import 'package:summer_flutter/app_scaffold.dart';
 import 'package:summer_flutter/authentication/provider/authentication_provider.dart';
 import 'package:summer_flutter/authentication/views/card/card_application.dart';
+import 'package:summer_flutter/authentication/views/card/card_result.dart';
 import 'package:summer_flutter/authentication/views/card/physical_card.dart';
 import 'package:summer_flutter/authentication/views/card/virtual_card.dart';
+import 'package:summer_flutter/authentication/views/dashboard/add_view.dart';
 import 'package:summer_flutter/authentication/views/dashboard/dashboard_view.dart';
 import 'package:summer_flutter/authentication/views/identity/scan_id.dart';
 import 'package:summer_flutter/authentication/views/identity/verify_dob.dart';
@@ -15,6 +17,7 @@ import 'package:summer_flutter/authentication/views/login/phone.dart';
 import 'package:summer_flutter/authentication/views/login/verify_login.dart';
 import 'package:summer_flutter/authentication/views/settings/settings.dart';
 import 'package:summer_flutter/authentication/views/signup/views/country_view.dart';
+import 'package:summer_flutter/authentication/views/signup/views/splash_screen.dart';
 import 'package:summer_flutter/lesson/counter_view.dart';
 import 'package:summer_flutter/lesson/hesc.dart';
 import 'package:summer_flutter/lesson/lifecycle.dart';
@@ -67,7 +70,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: OnboardingView(),
+        home: SplashScreen(),
       ),
     );
   }

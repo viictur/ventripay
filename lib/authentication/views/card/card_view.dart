@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:summer_flutter/authentication/views/card/physical_card.dart';
 import 'package:summer_flutter/authentication/views/card/virtual_card.dart';
 import 'package:summer_flutter/core/app_styles.dart';
+import 'package:summer_flutter/core/extension.dart';
 
 class CardView extends StatefulWidget {
   const CardView({super.key});
@@ -62,11 +63,24 @@ class _CardViewState extends State<CardView>
           horizontal: 12,
         ),
       ),
-      body: Padding(
-        padding: EdgeInsetsGeometry.all(16),
-        child: TabBarView(
-          children: [VirtualCard(), PhysicalCard()],
-        ),
+      body: Column(
+        children: [
+          Container(
+            height: 40,
+            width: context.getWidth(0.7),
+            child: TabBar(
+              dividerColor: Colors.transparent,
+              controller: tabController,
+              tabs: tab.map((t) => Tab(text: t)).toList(),
+            ),
+          ),
+          Expanded(
+            child: TabBarView(
+              controller: tabController,
+              children: [VirtualCard(), PhysicalCard()],
+            ),
+          ),
+        ],
       ),
     );
   }

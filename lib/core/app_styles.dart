@@ -82,6 +82,11 @@ class AppStyles {
     fontWeight: FontWeight.w700,
     color: Colors.black,
   );
+  static TextStyle redHat16 = GoogleFonts.redHatDisplay(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+    color: Colors.black,
+  );
   static TextStyle redHat10 = GoogleFonts.redHatDisplay(
     fontSize: 10,
     fontWeight: FontWeight.w400,

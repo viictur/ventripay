@@ -46,9 +46,9 @@ class UserModel {
       phoneNumber: data["phoneNumber"] as String? ?? "",
       password: data["password"] as String? ?? "",
       dob: data["dob"] as String? ?? "",
-      interest: data["interest"], //come back to this
-      createdAt: DateTime.parse(json['createdAt']),
-      updatedAt: DateTime.parse(json['updatedAt']),
+      // interest: data["interest"], //come back to this
+      // createdAt: DateTime.parse(json['createdAt']),
+      // updatedAt: DateTime.parse(json['updatedAt']),
     );
   }
 

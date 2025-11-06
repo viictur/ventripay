@@ -22,4 +22,9 @@ abstract class AuthenticationService {
   );
 
   Future<GeneralResponse> signOut();
+
+  Future<GeneralResponse> deposit(
+    double amount,
+    bool isDollar,
+  );
 }

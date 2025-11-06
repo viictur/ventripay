@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:summer_flutter/authentication/views/card/card.dart';
+import 'package:summer_flutter/authentication/views/card/card_view.dart';
 import 'package:summer_flutter/authentication/views/card/card_application.dart';
 import 'package:summer_flutter/authentication/views/card/physical_card.dart';
 import 'package:summer_flutter/authentication/views/card/virtual_card.dart';

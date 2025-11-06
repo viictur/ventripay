@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:summer_flutter/app_scaffold.dart';
+import 'package:summer_flutter/authentication/views/card/card_application.dart';
 import 'package:summer_flutter/core/app_styles.dart';
 import 'package:summer_flutter/core/my_button.dart';
+import 'package:summer_flutter/core/snackbar.dart';
 
 class VirtualCard extends StatefulWidget {
   const VirtualCard({super.key});
@@ -12,35 +14,11 @@ class VirtualCard extends StatefulWidget {
 }
 
 class _VirtualCardState extends State<VirtualCard> {
+  bool isChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('VentriPay Card'),
-      //   toolbarHeight: 30,
-      //   leading: Container(
-      //     decoration: BoxDecoration(
-      //       color: Color(0xFFE8EAED),
-      //       shape: BoxShape.circle,
-      //     ),
-      //     child: Icon(
-      //       Icons.arrow_back,
-      //       color: Color(0xFF003366),
-      //     ),
-      //   ),
-      //   actions: [
-      //     Text(
-      //       'Q&A',
-      //       style: AppStyles.montserrat16Xl.copyWith(
-      //         color: Color(0xFF003366),
-      //         fontSize: 15.44,
-      //       ),
-      //     ),
-      //   ],
-      //   actionsPadding: EdgeInsets.symmetric(
-      //     horizontal: 12,
-      //   ),
-      // ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
@@ -48,16 +26,6 @@ class _VirtualCardState extends State<VirtualCard> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment:
-                      MainAxisAlignment.center,
-                  children: [
-                    Text('Virtual Card'),
-                    Gap(10),
-                    Text('Physical Card'),
-                  ],
-                ),
-                Gap(10),
                 Column(
                   crossAxisAlignment:
                       CrossAxisAlignment.start,
@@ -122,7 +90,7 @@ class _VirtualCardState extends State<VirtualCard> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    Gap(20),
                     Row(
                       children: [
                         Image.asset(
@@ -155,7 +123,7 @@ class _VirtualCardState extends State<VirtualCard> {
                         ),
                       ],
                     ),
-                    Gap(10),
+                    Gap(20),
                     Row(
                       children: [
                         Image.asset(
@@ -184,7 +152,7 @@ class _VirtualCardState extends State<VirtualCard> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    Gap(20),
                     Row(
                       children: [
                         Image.asset(
@@ -215,21 +183,41 @@ class _VirtualCardState extends State<VirtualCard> {
                     ),
                   ],
                 ),
+                Gap(15),
                 Row(
                   children: [
                     Checkbox(
-                      value: false,
-                      onChanged: (value) {},
+                      value: isChecked,
+                      onChanged: (value) {
+                        isChecked = value!;
+                      },
                     ),
                     Text(
                       'Click the button to accept Terms & Conditions',
                     ),
                   ],
                 ),
+                Gap(10),
                 MyButton(
                   height: 45,
                   title: 'GET IT NOW',
-                  onPressed: () {},
+                  onPressed: () {
+                    if (isChecked) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              const CardApplication(),
+                        ),
+                      );
+                    } else {
+                      SnackbarHandler.showErrorSnackbar(
+                        context: context,
+                        message:
+                            'Pls agree to Terms & Conditions to continue',
+                      );
+                    }
+                  },
                   backgroundColor: Color(0xFF557799),
                 ),
               ],

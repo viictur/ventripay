@@ -14,32 +14,6 @@ class _PhysicalCardState extends State<PhysicalCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('VentriPay Card'),
-        toolbarHeight: 30,
-        leading: Container(
-          decoration: BoxDecoration(
-            color: Color(0xFFE8EAED),
-            shape: BoxShape.circle,
-          ),
-          child: Icon(
-            Icons.arrow_back,
-            color: Color(0xFF003366),
-          ),
-        ),
-        actions: [
-          Text(
-            'Q&A',
-            style: AppStyles.montserrat16Xl.copyWith(
-              color: Color(0xFF003366),
-              fontSize: 15.44,
-            ),
-          ),
-        ],
-        actionsPadding: EdgeInsets.symmetric(
-          horizontal: 12,
-        ),
-      ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
@@ -47,15 +21,6 @@ class _PhysicalCardState extends State<PhysicalCard> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment:
-                      MainAxisAlignment.center,
-                  children: [
-                    Text('Virtual Card'),
-                    Gap(10),
-                    Text('Physical Card'),
-                  ],
-                ),
                 Gap(10),
                 Column(
                   crossAxisAlignment:
@@ -120,7 +85,7 @@ class _PhysicalCardState extends State<PhysicalCard> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    Gap(20),
                     Row(
                       children: [
                         Image.asset('assets/promo.png'),
@@ -151,7 +116,7 @@ class _PhysicalCardState extends State<PhysicalCard> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    Gap(20),
                   ],
                 ),
                 Row(

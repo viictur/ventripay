@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:summer_flutter/authentication/models/user_model.dart';
 import 'package:summer_flutter/authentication/provider/authentication_provider.dart';
+import 'package:summer_flutter/authentication/views/card/card_pay.dart';
 import 'package:summer_flutter/core/app_styles.dart';
 import 'package:summer_flutter/core/extension.dart';
 import 'package:summer_flutter/core/loading_overlay_scaffold.dart';
 import 'package:summer_flutter/core/my_button.dart';
+import 'package:summer_flutter/core/snackbar.dart';
 import 'package:summer_flutter/locator.dart';
 import 'package:summer_flutter/onboarding/views/onboarding_view.dart';
 
@@ -25,6 +28,8 @@ class _CardApplicationState extends State<CardApplication> {
   final dobController = TextEditingController();
   final genderController = TextEditingController();
 
+  final fee = 100.00;
+
   @override
   Widget build(BuildContext context) {
     return Consumer<AuthenticationProvider>(
@@ -39,14 +44,17 @@ class _CardApplicationState extends State<CardApplication> {
           isLoading: auth.isLoading,
           child: Scaffold(
             appBar: AppBar(
-              toolbarHeight: 30,
+              toolbarHeight: 36,
               leading: Container(
                 decoration: BoxDecoration(
                   color: Color(0xFFE8EAED),
                   shape: BoxShape.circle,
                 ),
-                child: Icon(
-                  Icons.arrow_back,
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(Icons.arrow_back),
                   color: Color(0xFF003366),
                 ),
               ),
@@ -282,7 +290,7 @@ class _CardApplicationState extends State<CardApplication> {
                                     .montserrat14xG,
                               ),
                               Text(
-                                '\$0.98',
+                                '\$ $fee',
                                 style: AppStyles
                                     .montserrat14xG,
                               ),
@@ -313,14 +321,43 @@ class _CardApplicationState extends State<CardApplication> {
                       height: 45,
                       title: 'Verify and make payments',
                       backgroundColor: Color(0xFF003366),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                const OnboardingView(),
+                      onPressed: () async {
+                        showModalBottomSheet(
+                          shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.vertical(
+                                  top: Radius.circular(
+                                    25.0,
+                                  ),
+                                ),
                           ),
+                          context: context,
+                          builder: (context) => CardPay(),
                         );
+                        final newUser = UserModel(
+                          firstName:
+                              firstNameController.text,
+                          lastName: lastNameController.text,
+                          middleName:
+                              middleNameController.text,
+                          dob: dobController.text,
+                          gender: genderController.text,
+                        );
+                        await auth.cardApply(fee, newUser).then((
+                          res,
+                        ) {
+                          if (res.success) {
+                            SnackbarHandler.showSuccessSnackbar(
+                              context: context,
+                              message: res.message,
+                            );
+                          } else {
+                            SnackbarHandler.showErrorSnackbar(
+                              context: context,
+                              message: res.message,
+                            );
+                          }
+                        });
                       },
                       style: AppStyles.montserrat16Xl
                           .copyWith(color: Colors.white),

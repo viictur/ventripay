@@ -30,7 +30,6 @@ class AuthenticationServiceImpl
           success: true,
           message: 'Login successful.',
         );
-        // Welcome back ${user.firstName}
       }
       return GeneralResponse(
         success: false,
@@ -194,10 +193,9 @@ class AuthenticationServiceImpl
         message: 'An error occurred.',
       );
     } catch (e) {
-      print('An error $e occurred.');
       return GeneralResponse(
         success: false,
-        message: 'An error occurred.',
+        message: 'An unknown error: $e',
       );
     }
   }
@@ -220,6 +218,56 @@ class AuthenticationServiceImpl
       return GeneralResponse(
         success: false,
         message: 'Error during signout: $e',
+      );
+    }
+  }
+
+  @override
+  Future<GeneralResponse> deposit(
+    double amount,
+    bool isDollar,
+  ) async {
+    try {
+      if (_auth.currentUser != null) {
+        final userId = _auth.currentUser!.uid;
+        final myWallet = await _database
+            .collection('Wallet')
+            .doc(userId)
+            .get();
+        final wallet = WalletModel.fromJson(myWallet);
+
+        if (isDollar) {
+          final newBal = wallet.dollarBal + amount;
+          final data = {'dollarBal': newBal};
+          await _database
+              .collection('Wallet')
+              .doc(userId)
+              .update(data);
+          return GeneralResponse(
+            success: true,
+            message: 'Money deposited successfully.',
+          );
+        } else {
+          final newBal = wallet.nairaBal + amount;
+          final data = {'nairaBal': newBal};
+          await _database
+              .collection('Wallet')
+              .doc(userId)
+              .update(data);
+          return GeneralResponse(
+            success: true,
+            message: 'Money deposited successfully.',
+          );
+        }
+      }
+      return GeneralResponse(
+        success: false,
+        message: 'Something went wrong.',
+      );
+    } catch (e) {
+      return GeneralResponse(
+        success: false,
+        message: 'An unknown error: $e',
       );
     }
   }

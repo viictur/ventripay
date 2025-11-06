@@ -50,6 +50,7 @@ class AuthenticationProvider extends ChangeNotifier {
         final myWallet = res.data[1];
         user = UserModel.fromJson(myUser);
         wallet = WalletModel.fromJson(myWallet);
+        notifyListeners();
       }
     } catch (e) {
       print('An error occurred $e.');
@@ -80,7 +81,6 @@ class AuthenticationProvider extends ChangeNotifier {
         );
       }
     } catch (e) {
-      print("An error occurred $e.");
       return GeneralResponse(
         success: false,
         message: 'Error $e',
@@ -111,10 +111,9 @@ class AuthenticationProvider extends ChangeNotifier {
         );
       }
     } catch (e) {
-      print("An error occurred $e.");
       return GeneralResponse(
         success: false,
-        message: 'Error $e',
+        message: 'An unknown error: $e',
       );
     } finally {
       isLoading = false;
@@ -139,7 +138,40 @@ class AuthenticationProvider extends ChangeNotifier {
         );
       }
     } catch (e) {
-      print("An error occurred: $e.");
+      return GeneralResponse(
+        success: false,
+        message: 'An unknown error: $e',
+      );
+    } finally {
+      isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  Future<GeneralResponse> deposit(
+    double amount,
+    bool isDollar,
+  ) async {
+    try {
+      isLoading = true;
+      notifyListeners();
+      final res = await authService.deposit(
+        amount,
+        isDollar,
+      );
+      if (res.success) {
+        await getUser();
+        return GeneralResponse(
+          success: true,
+          message: res.message,
+        );
+      } else {
+        return GeneralResponse(
+          success: false,
+          message: res.message,
+        );
+      }
+    } catch (e) {
       return GeneralResponse(
         success: false,
         message: 'An unknown error: $e',

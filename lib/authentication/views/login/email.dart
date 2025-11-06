@@ -179,7 +179,7 @@ class _EmailState extends State<Email> {
                               ),
                             ],
                           ),
-                          Gap(context.getHeight(0.57)),
+                          Gap(context.getHeight(0.53)),
                           Padding(
                             padding: const EdgeInsets.all(
                               12.0,
@@ -216,7 +216,7 @@ class _EmailState extends State<Email> {
                                       SnackbarHandler.showSuccessSnackbar(
                                         context: context,
                                         message:
-                                            res.message,
+                                            "Login successful. Welcome back ${auth.user.firstName}",
                                       );
                                       Navigator.push(
                                         context,
