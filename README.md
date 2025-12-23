@@ -56,5 +56,6 @@ This project is a **learning-focused fintech application** built to strengthen F
 
 **Victor Oyeyemi**
 
-LinkedIn: https://www.linkedin.com/in/victor-oyeyemi/
+LinkedIn: https://www.linkedin.com/in/victor-oyeyemi
+
 GitHub: https://github.com/viictur
